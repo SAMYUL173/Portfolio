@@ -4,36 +4,44 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Samyul Gurung — computing student focused on cybersecurity, databases, and web systems.">
 
+  <!-- Two Google Fonts: Space Grotesk for headings, IBM Plex Sans for body text -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome — used only for small nav/contact icons, no image files needed for these -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="styles.css">
 
-  <title>Portfolio</title>
+  <title>Samyul Gurung — Portfolio</title>
 </head>
 <body>
-  <!-- NAVBAR -->
+
+  <!-- ============================================================
+       NAVBAR
+       Site name on the left; social + contact links on the right.
+       ============================================================ -->
   <nav>
     <div class="left">
       <a href="/">Samyul Gurung</a>
     </div>
 
     <div class="right">
-      <a href="http://github.com" target="_blank" rel="noopener noreferrer">
+      <!-- TODO: replace these three placeholder links with your real ones -->
+      <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-github"></i>
         <span>Github</span>
       </a>
-      
-      <a href="http://linkedin.com" target="_blank" rel="noopener noreferrer">
+
+      <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer">
         <i class="fa-brands fa-linkedin"></i>
         <span>Linkedin</span>
       </a>
-      
-      <a href="mailto:sam@example.com">
+
+      <a href="mailto:your.email@example.com">
         <i class="fa-solid fa-envelope"></i>
         <span>Email</span>
       </a>
@@ -41,23 +49,30 @@
   </nav>
 
   <main>
-    <!-- SECTION 1: Hero -->
+
+    <!-- ============================================================
+         SECTION 1: Hero
+         The first thing a visitor sees — who you are, a one-line
+         summary, a short intro, and your own photo (no stock image).
+         ============================================================ -->
     <section class="hero-section">
       <div class="text">
-        <h2>Hi, I'm Samyul </h2>
-        <p>Hello! My name is Samyul Gurung. I am an IT student with a strong interest in web design, web development, cybersecurity, and networking. I enjoy learning new technologies and applying my knowledge to create practical and user-friendly websites.</p>
+        <h2>Hi, I'm Samyul.</h2>
+        <p class="lede">I build web systems, and I like taking them apart to see how they hold up.</p>
+        <!-- Edit this paragraph freely — add your university, year, or anything else about yourself -->
+        <p>I'm a computing student working through coursework in cybersecurity and ethical hacking, database systems, wireless communications, and web technologies. This site is where I bring that coursework together in one place.</p>
 
         <div class="links">
           <a href="#skills">
             <i class="fa-solid fa-code"></i>
             <span>Skills</span>
           </a>
-          
-          <a href="#testimony">
-            <i class="fa-solid fa-pen"></i>
-            <span>Testimony</span>
+
+          <a href="#about">
+            <i class="fa-solid fa-user"></i>
+            <span>About</span>
           </a>
-          
+
           <a href="#contact">
             <i class="fa-solid fa-envelope"></i>
             <span>Contact</span>
@@ -65,62 +80,139 @@
         </div>
       </div>
 
+      <!-- Your own photo, framed with corner marks instead of the usual circle crop -->
       <div class="headshot">
-        <img src="eye.jpg" alt="">
+        <div class="photo-frame">
+          <span class="corner corner-tl"></span>
+          <span class="corner corner-tr"></span>
+          <span class="corner corner-bl"></span>
+          <span class="corner corner-br"></span>
+          <img src="assets/images/profile.jpg" alt="Samyul Gurung outdoors in the mountains">
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 2: Skills -->
+    <!-- ============================================================
+         SECTION 2: Skills
+         Grouped by the areas you're actually studying instead of a
+         generic logo grid. Each group is just a heading plus a row
+         of .tag spans — add, remove, or rename freely.
+         ============================================================ -->
     <section id="skills" class="skills-section">
       <h2>Skills</h2>
-      <div class="text">
-        This portfolio showcases my skills, projects, education, and achievements. It reflects my learning journey, technical abilities, and passion for continuous improvement. I am always eager to expand my knowledge, solve real-world problems, and build creative digital solutions.
-      </div>
+      <p class="text">Grouped by coursework area — swap in the specific tools and topics you're most confident with.</p>
 
-      
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Cybersecurity &amp; Ethical Hacking</h3>
+          <div class="tags">
+            <span class="tag">Footprinting &amp; Reconnaissance</span>
+            <span class="tag">Network Scanning (Nmap)</span>
+            <span class="tag">Malware Analysis Basics</span>
+            <span class="tag">Wireless Security</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Database Systems</h3>
+          <div class="tags">
+            <span class="tag">DBMS Concepts &amp; Architecture</span>
+            <span class="tag">Client&ndash;Server Data Models</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Web Technologies</h3>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Wireless Communication</h3>
+          <div class="tags">
+            <span class="tag">0G&ndash;5G Network Evolution</span>
+            <span class="tag">Wireless Standards</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3>Technopreneurship</h3>
+          <div class="tags">
+            <span class="tag">Business Planning</span>
+            <span class="tag">Value Proposition Design</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 3: Projects Section -->
-    <section id="Projects" class="Projects Section">
-      <h2>Testimony</h2>
+    <!-- ============================================================
+         SECTION 3: About
+         Replaces the old "Testimony" section. A short personal
+         paragraph plus a quick-reference box of your current focus.
+         ============================================================ -->
+    <section id="about" class="about-section">
+      <h2>About</h2>
 
       <div class="group">
-        <div class="person-details">
-          
-          <p>Samyul Gurung</p>
-          <p>Projects.</p>
+        <!-- Replace with your own story: what got you into computing, interests outside class, goals, etc. -->
+        <div class="text">
+          <p>I'm interested in two sides of the same coin: building systems, and understanding how they can be broken into. That's part of why my coursework spans web development, databases, and cybersecurity — each one shows a different layer of how the software people use every day actually works.</p>
+          <p>Outside of coursework, I like putting what I learn into practice through small projects, like this site — built with plain HTML and CSS.</p>
         </div>
 
-        <div class="text">
-          "This section highlights the projects I have completed throughout my learning journey. Each project demonstrates my skills in web design, development, problem-solving, and the practical application of modern technologies. These projects reflect my commitment to continuous learning and my ability to transform ideas into functional and user-friendly solutions. I am constantly working on new projects to improve my technical knowledge and gain hands-on experience."
+        <div class="focus-box">
+          <h3>Currently studying</h3>
+          <ul>
+            <li>Cybersecurity &amp; Ethical Hacking</li>
+            <li>Database Systems</li>
+            <li>Wireless Communication Systems</li>
+            <li>Web Technologies</li>
+            <li>Technopreneurship</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: Contact -->
+    <!-- ============================================================
+         SECTION 4: Contact
+         Static form — this is plain HTML/CSS with no backend, so the
+         button doesn't send anything yet. Point the form at a service
+         like Formspree, or swap it for a mailto link, when you're
+         ready to make it functional.
+         ============================================================ -->
     <section id="contact" class="contact-section">
       <h2>Contact</h2>
 
       <div class="group">
         <div class="text">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat fugit maiores atque architecto saepe tenetur quasi reiciendis illum sint doloremque alias inventore, asperiores maxime pariatur totam hic assumenda repudiandae, iusto quisquam nisi! Eaque doloremque perspiciatis minus voluptate dicta. A ratione autem dolor iure libero numquam voluptatem nobis laborum et corporis.
+          <p>Have a project, an idea, or a question about something on this site? I'd like to hear from you — reach out through the form, or email me directly.</p>
         </div>
 
         <form>
           <label for="name">Name</label>
-          <input type="text" id="name">
+          <input type="text" id="name" name="name">
 
           <label for="email">Email</label>
-          <input type="email" id="email">
+          <input type="email" id="email" name="email">
 
           <label for="message">Message</label>
-          <textarea id="message" cols="30" rows="10"></textarea>
+          <textarea id="message" name="message" cols="30" rows="10"></textarea>
 
           <button type="submit">Send Message</button>
         </form>
       </div>
     </section>
   </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer>
+    <p>&copy; 2026 Samyul Gurung</p>
+  </footer>
 </body>
 </html>
