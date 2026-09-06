@@ -1,7 +1,16 @@
+/* ================================================================
+   DESIGN TOKENS
+   All colors and shared values live here as CSS variables so the
+   whole site's look can be changed by editing this one block.
+   ================================================================ */
 :root {
-  --text-color: #1a1c20;
-  --link-color: #4a76ee;
-  --background-color: #eeeff1;
+  --bg: #f4f6f8;          /* page background — cool, pale grey-blue */
+  --surface: #ffffff;      /* cards / tags / form fields */
+  --ink: #131a22;          /* main text, headings — deep navy, not pure black */
+  --ink-soft: #4b5763;     /* secondary text — slate grey */
+  --line: #d7dee4;         /* hairline borders */
+  --accent: #2f7a78;       /* single accent color — deep teal */
+  --accent-soft: #e4f1f0;  /* light tint of the accent, for focus rings */
 }
 
 * {
@@ -15,50 +24,74 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-color);
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
   max-width: 1400px;
   margin: 0 auto;
 }
 
+h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
 a {
-  color: var(--link-color);
+  color: var(--accent);
   text-decoration: none;
 }
 
-/* NAVBAR */
+/* Respect users who have asked their system to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ================================================================
+   NAVBAR
+   ================================================================ */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0 50px;
   height: 80px;
 }
 
 nav .left a {
-  color: var(--text-color);
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--ink);
   font-size: 22px;
   font-weight: 600;
 }
 
 nav .right a {
-  color: var(--text-color);
+  color: var(--ink);
   margin: 0 10px;
+  font-size: 15px;
 }
 
+nav .right a:last-child {
+  color: #fff;
+  background-color: var(--accent);
+  padding: 6px 16px;
+  border-radius: 4px;
+}
 
+nav .right a span {
+  margin-left: 5px;
+}
 
-/* SECTION 1: Hero */
+/* ================================================================
+   SECTION 1: Hero
+   Two columns: intro text on the left, framed photo on the right.
+   ================================================================ */
 .hero-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
-  margin: 50px 0;
-  margin-bottom: 100px;
-  gap: 40px;
+  margin: 50px 0 110px;
+  gap: 50px;
 }
 
 .hero-section .text {
@@ -66,66 +99,200 @@ nav .right a {
 }
 
 .hero-section .text h2 {
-  font-size: 45px;
+  font-size: 46px;
+  line-height: 1.15;
+}
+
+.hero-section .text .lede {
+  font-size: 19px;
+  font-weight: 500;
+  margin: 14px 0 12px;
+}
+
+.hero-section .text p {
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 52ch;
 }
 
 .hero-section .text .links {
-  margin-top: 25px;
+  margin-top: 26px;
 }
 
 .hero-section .text .links a {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 2px solid var(--link-color);
-  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
   margin-right: 10px;
   margin-bottom: 10px;
-  transition: .1s;
+  color: var(--ink);
+  font-size: 14px;
+  transition: .15s;
 }
 
 .hero-section .text .links a:hover {
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .hero-section .headshot {
-  flex: 2;
+  flex: 3;
   display: flex;
   justify-content: right;
 }
 
-.hero-section .headshot img {
-  width: 350px;
-  border-radius: 50%;
+/* Corner-mark frame stands in for the usual circular headshot —
+   four short "L" brackets positioned over the photo's corners. */
+.photo-frame {
+  position: relative;
+  padding: 16px;
 }
 
-/* SECTION 2: Skills */
+.photo-frame img {
+  display: block;
+  width: 320px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.corner {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+}
+
+.corner-tl { top: 0;    left: 0;  border-top: 2px solid var(--accent);    border-left: 2px solid var(--accent); }
+.corner-tr { top: 0;    right: 0; border-top: 2px solid var(--accent);    border-right: 2px solid var(--accent); }
+.corner-bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+.corner-br { bottom: 0; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
+
+/* ================================================================
+   SECTION 2: Skills
+   Coursework areas, each rendered as a heading + a row of tags.
+   ================================================================ */
 .skills-section {
   padding: 0 50px;
-  margin-bottom: 100px;
+  margin-bottom: 110px;
 }
 
 .skills-section h2 {
-  text-align: center;
-  font-size: 35px;
+  font-size: 34px;
+  margin-bottom: 8px;
 }
 
-.skills-section .text {
-  text-align: center;
-  margin-bottom: 20px;
+.skills-section > .text {
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin-bottom: 34px;
 }
 
+.skill-group {
+  margin-bottom: 26px;
+}
 
+.skill-group h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
-/* SECTION 4: Contact */
+.tag {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ================================================================
+   SECTION 3: About
+   Personal paragraph on the left, a "currently studying" box on
+   the right — replaces the old testimonial section entirely.
+   ================================================================ */
+.about-section {
+  padding: 0 50px;
+  margin-bottom: 110px;
+}
+
+.about-section h2 {
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+.about-section .group {
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.about-section .text {
+  flex: 6;
+}
+
+.about-section .text p {
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 60ch;
+  margin-bottom: 16px;
+}
+
+.focus-box {
+  flex: 4;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 4px;
+  padding: 26px 28px;
+}
+
+.focus-box h3 {
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.focus-box ul {
+  list-style: none;
+}
+
+.focus-box li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 10px;
+  color: var(--ink-soft);
+  font-size: 15px;
+}
+
+.focus-box li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+}
+
+/* ================================================================
+   SECTION 4: Contact
+   ================================================================ */
 .contact-section {
   padding: 0 50px;
-  margin-bottom: 100px;
+  margin-bottom: 90px;
 }
 
 .contact-section h2 {
-  font-size: 35px;
+  font-size: 34px;
+  margin-bottom: 10px;
 }
 
 .contact-section .group {
@@ -133,120 +300,122 @@ nav .right a {
   gap: 50px;
 }
 
-.contact-section .group .text {
+.contact-section .text {
   flex: 3;
   margin-top: 20px;
+  color: var(--ink-soft);
+  line-height: 1.6;
 }
 
-.contact-section .group form {
+.contact-section form {
   flex: 3;
   display: flex;
   flex-direction: column;
 }
 
-.contact-section .group form input,
-.contact-section .group form textarea {
-  font-family: 'Poppins', sans-serif;
-  border: 2px solid var(--link-color);
-  background-color: transparent;
-  padding: 10px;
-  margin-bottom: 15px;
+.contact-section form label {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+}
+
+.contact-section form input,
+.contact-section form textarea {
+  font-family: 'IBM Plex Sans', sans-serif;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  background-color: var(--surface);
+  padding: 10px 12px;
+  margin-bottom: 16px;
   outline: none;
   resize: none;
+  transition: .15s;
 }
 
-.contact-section .group form button {
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
+.contact-section form input:focus,
+.contact-section form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.contact-section form button {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
   color: #fff;
-  background-color: var(--link-color);
+  background-color: var(--accent);
   border: none;
-  height: 50px;
+  border-radius: 4px;
+  height: 48px;
   cursor: pointer;
-  transition: .1s;
+  transition: .15s;
 }
 
-.contact-section .group form button:hover {
-  filter: brightness(.9);
+.contact-section form button:hover {
+  filter: brightness(.92);
 }
 
+/* ================================================================
+   FOOTER
+   ================================================================ */
+footer {
+  padding: 30px 50px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+/* ================================================================
+   RESPONSIVE BREAKPOINTS
+   ================================================================ */
 @media (max-width: 850px) {
-  /* SECTION 1: Hero */
   .hero-section .text h2 {
-    font-size: 35px;
+    font-size: 36px;
   }
 }
 
 @media (max-width: 740px) {
-  /* SECTION 1: Hero */
   .hero-section {
     flex-direction: column-reverse;
   }
 
-  .hero-section .headshot img {
-    width: 300px;
+  .photo-frame img {
+    width: 260px;
   }
 
-  /* SECTION 3: Testimony */
-  .testimony-section {
-    text-align: center;
-  }
-
-  .testimony-section .group {
+  .about-section .group {
     flex-direction: column;
   }
 
-  /* SECTION 4: Contact */
   .contact-section .group {
     flex-direction: column;
   }
 }
 
 @media (max-width: 600px) {
-  /* NAVBAR */
   nav {
     padding: 0 20px;
-  }
-
-  nav .right a {
-    font-size: 22px;
-  }
-
-  nav .right a:last-child {
-    color: var(--text-color);
-    background-color: transparent;
-    padding: 0;
   }
 
   nav .right a span {
     display: none;
   }
 
-  /* SECTION 1: Hero */
-  .hero-section {
+  nav .right a:last-child {
+    background: transparent;
+    color: var(--ink);
+    padding: 0;
+  }
+
+  .hero-section,
+  .skills-section,
+  .about-section,
+  .contact-section {
     padding: 0 20px;
   }
 
   .hero-section .text h2 {
     font-size: 30px;
-  }
-
-  /* SECTION 2: Skills */
-  .skills-section {
-    padding: 0 20px;
-  }
-
-  .skills-section .cells .cell span {
-    font-size: 16px;
-  }
-
-  /* SECTION 3: Testimony */
-  .testimony-section {
-    padding: 0 20px;
-  }
-
-  /* SECTION 4: Contact */
-  .contact-section {
-    padding: 0 20px;
   }
 }
