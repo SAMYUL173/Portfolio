@@ -1,12 +1,12 @@
 
 :root {
-  --bg: #f4f6f8;          /* page background — cool, pale grey-blue */
-  --surface: #ffffff;      /* cards / tags / form fields */
-  --ink: #131a22;          /* main text, headings — deep navy, not pure black */
-  --ink-soft: #4b5763;     /* secondary text — slate grey */
-  --line: #d7dee4;         /* hairline borders */
-  --accent: #2f7a78;       /* single accent color — deep teal */
-  --accent-soft: #e4f1f0;  /* light tint of the accent, for focus rings */
+  --bg: #f4f6f8;        
+  --surface: #ffffff;     
+  --ink: #131a22;         
+  --ink-soft: #4b5763;    
+  --line: #d7dee4;         
+  --accent: #2f7a78;      
+  --accent-soft: #e4f1f0; 
 }
 
 * {
