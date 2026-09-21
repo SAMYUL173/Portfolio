@@ -1,8 +1,4 @@
-/* ================================================================
-   DESIGN TOKENS
-   All colors and shared values live here as CSS variables so the
-   whole site's look can be changed by editing this one block.
-   ================================================================ */
+
 :root {
   --bg: #f4f6f8;          /* page background — cool, pale grey-blue */
   --surface: #ffffff;      /* cards / tags / form fields */
@@ -46,9 +42,8 @@ a {
   * { transition: none !important; }
 }
 
-/* ================================================================
-   NAVBAR
-   ================================================================ */
+/*
+   NAVBAR*/
 nav {
   display: flex;
   justify-content: space-between;
@@ -81,10 +76,10 @@ nav .right a span {
   margin-left: 5px;
 }
 
-/* ================================================================
+/* 
    SECTION 1: Hero
    Two columns: intro text on the left, framed photo on the right.
-   ================================================================ */
+  */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -144,8 +139,7 @@ nav .right a span {
   justify-content: right;
 }
 
-/* Corner-mark frame stands in for the usual circular headshot —
-   four short "L" brackets positioned over the photo's corners. */
+
 .photo-frame {
   position: relative;
   padding: 16px;
@@ -169,10 +163,8 @@ nav .right a span {
 .corner-bl { bottom: 0; left: 0;  border-bottom: 2px solid var(--accent); border-left: 2px solid var(--accent); }
 .corner-br { bottom: 0; right: 0; border-bottom: 2px solid var(--accent); border-right: 2px solid var(--accent); }
 
-/* ================================================================
-   SECTION 2: Skills
-   Coursework areas, each rendered as a heading + a row of tags.
-   ================================================================ */
+
+   
 .skills-section {
   padding: 0 50px;
   margin-bottom: 110px;
@@ -215,11 +207,9 @@ nav .right a span {
   font-size: 14px;
 }
 
-/* ================================================================
+/* 
    SECTION 3: About
-   Personal paragraph on the left, a "currently studying" box on
-   the right — replaces the old testimonial section entirely.
-   ================================================================ */
+ */
 .about-section {
   padding: 0 50px;
   margin-bottom: 110px;
@@ -282,9 +272,7 @@ nav .right a span {
   background: var(--accent);
 }
 
-/* ================================================================
-   SECTION 4: Contact
-   ================================================================ */
+ 
 .contact-section {
   padding: 0 50px;
   margin-bottom: 90px;
@@ -355,9 +343,9 @@ nav .right a span {
   filter: brightness(.92);
 }
 
-/* ================================================================
+/* 
    FOOTER
-   ================================================================ */
+ */
 footer {
   padding: 30px 50px;
   border-top: 1px solid var(--line);
